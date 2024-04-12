@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training model</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: url('vackground-com-agUC-v_D1iI-unsplash.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column; /* Added flex-direction to arrange content vertically */
+            justify-content: center;
+            align-items: center;
+        }
+        .voice {
+            height: 260px;
+            font-size: 40px;
+            text-align: center;
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px; /* Added margin to separate voice section and footer */
+            font-family: "Montserrat", sans-serif;
+        }
+        .voicein {
+            height: 100%;
+            color: black;
+            width: 60%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.85);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            position: relative;
+            z-index: 1;
+            border-radius: 10px;
+        }
+        .voicein:hover{
+            cursor: pointer;
+        }
+        .redblinksmall {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: rgb(255, 0, 0);
+            border-radius: 50%;
+            z-index: 0;
+            animation: redBlink 1s ease-in-out infinite alternate;
+        }
+        @keyframes redBlink {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+        }
+        .voicein img{
+            height: 60px;
+        }
+        .voicein img:hover{
+            cursor: pointer;
+        }
+        .note {
+            font-size: 13px;
+            margin-top: 20px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="voice">
+        <div class="voicein" onclick="next()">
+            Visualize the music
+            <br>
+            <img src="Daco_5169511.png" alt="">
+            <div class="redblinksmall"></div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div>&copy; <span id="currentYear"></span> All rights reserved. Based in India.</div>
+    </footer>
+    <div class="note">Listen to Songs with our visualizer</div>
+    <div class="note">Upload and Listen</div>
+    <script>
+        // JavaScript to update the current year automatically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        function next(){
+            window.location.href = "viz.html";
+        }
+    </script>
+</body>
+</html>
+<!-- https://github.com/lucaArrotta/Age-Estimation-based-on-Human-Voice/blob/master/Age%20Estimation%20based%20on%20Human%20Voice.ipynb -->
